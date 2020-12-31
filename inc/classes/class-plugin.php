@@ -31,6 +31,7 @@ class Plugin {
 		Plugin_Configs::get_instance();
 		SEO::get_instance();
 		Blocks::get_instance();
+		Elementor_Widgets::get_instance();
 
 	}
 
