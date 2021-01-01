@@ -11,6 +11,8 @@
 namespace Hrithik\Features\Inc\Elementor_Widgets;
 
 use \Elementor\Controls_Manager;
+use Elementor\Core\Schemes;
+use Elementor\Group_Control_Typography;
 /**
  * Class Upcoming_Events
  */
@@ -167,6 +169,595 @@ class Upcoming_Events extends Base {
 		);
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_content_style',
+			[
+				'label'      => __( 'Content', 'hrithik-features' ),
+				'tab'        => Controls_Manager::TAB_STYLE,
+				'conditions' => [
+					'relation' => 'or',
+					'terms'    => [
+						[
+							'name'     => 'event_type',
+							'operator' => '!==',
+							'value'    => '',
+						],
+						[
+							'name'     => 'event_name',
+							'operator' => '!==',
+							'value'    => '',
+						],
+						[
+							'name'     => 'event_description',
+							'operator' => '!==',
+							'value'    => '',
+						],
+					],
+				],
+			]
+		);
+
+		$this->add_control(
+			'event_type_style',
+			[
+				'type'      => Controls_Manager::HEADING,
+				'label'     => __( 'Event Type', 'hrithik-features' ),
+				'condition' => [
+					'event_type!' => '',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'event_type_typography',
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .elementor-cta__type',
+				'condition' => [
+					'event_type!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'event_type_spacing',
+			[
+				'label'     => __( 'Spacing', 'hrithik-features' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__type:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'event_type!' => '',
+				],
+				'default'   => [
+					'unit' => 'px',
+					'size' => '20',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'type_color_tabs' );
+
+		$this->start_controls_tab(
+			'type_colors_normal',
+			[
+				'label' => __( 'Normal', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_type_color',
+			[
+				'label'     => __( 'Type Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__type' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_type!' => '',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'event_type_hover_color',
+			[
+				'label' => __( 'Hover', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_type_color_hover',
+			[
+				'label'     => __( 'Type Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__type:hover' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_type!' => '',
+				],
+			]
+		);
+
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'event_name_style',
+			[
+				'type'      => Controls_Manager::HEADING,
+				'label'     => __( 'Event Name', 'hrithik-features' ),
+				'condition' => [
+					'event_name!' => '',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'event_name_typography',
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .elementor-cta__name',
+				'condition' => [
+					'event_name!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'event_name_spacing',
+			[
+				'label'     => __( 'Spacing', 'hrithik-features' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__name:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'event_name!' => '',
+				],
+				'default'   => [
+					'unit' => 'px',
+					'size' => '20',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'name_color_tabs' );
+
+		$this->start_controls_tab(
+			'name_colors_normal',
+			[
+				'label' => __( 'Normal', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_name_color',
+			[
+				'label'     => __( 'Name Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__name' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_name!' => '',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'event_name_hover_color',
+			[
+				'label' => __( 'Hover', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_name_color_hover',
+			[
+				'label'     => __( 'Name Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__name:hover' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_name!' => '',
+				],
+			]
+		);
+
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'event_date_style',
+			[
+				'type'      => Controls_Manager::HEADING,
+				'label'     => __( 'Event Date', 'hrithik-features' ),
+				'condition' => [
+					'event_date!' => '',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'event_date_typography',
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .elementor-cta__date',
+				'condition' => [
+					'event_date!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'event_date_spacing',
+			[
+				'label'     => __( 'Spacing', 'hrithik-features' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__date:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'event_date!' => '',
+				],
+				'default'   => [
+					'unit' => 'px',
+					'size' => '20',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'date_color_tabs' );
+
+		$this->start_controls_tab(
+			'date_colors_normal',
+			[
+				'label' => __( 'Normal', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_date_color',
+			[
+				'label'     => __( 'Date Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__date' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_date!' => '',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'event_date_hover_color',
+			[
+				'label' => __( 'Hover', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_date_color_hover',
+			[
+				'label'     => __( 'Date Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__date:hover' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_date!' => '',
+				],
+			]
+		);
+
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'event_location_style',
+			[
+				'type'      => Controls_Manager::HEADING,
+				'label'     => __( 'Event Location', 'hrithik-features' ),
+				'condition' => [
+					'event_location!' => '',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'event_location_typography',
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .elementor-cta__location',
+				'condition' => [
+					'event_location!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'event_location_spacing',
+			[
+				'label'     => __( 'Spacing', 'hrithik-features' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__location:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'event_location!' => '',
+				],
+				'default'   => [
+					'unit' => 'px',
+					'size' => '20',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'location_color_tabs' );
+
+		$this->start_controls_tab(
+			'location_colors_normal',
+			[
+				'label' => __( 'Normal', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_location_color',
+			[
+				'label'     => __( 'Location Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__location' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_location!' => '',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'event_location_hover_color',
+			[
+				'label' => __( 'Hover', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_location_color_hover',
+			[
+				'label'     => __( 'Location Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__location:hover' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_location!' => '',
+				],
+			]
+		);
+
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'event_description_style',
+			[
+				'type'      => Controls_Manager::HEADING,
+				'label'     => __( 'Event Description', 'hrithik-features' ),
+				'condition' => [
+					'event_description!' => '',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'event_description_typography',
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .elementor-cta__description',
+				'condition' => [
+					'event_description!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'event_description_spacing',
+			[
+				'label'     => __( 'Spacing', 'hrithik-features' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__description:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'event_description!' => '',
+				],
+				'default'   => [
+					'unit' => 'px',
+					'size' => '20',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'description_color_tabs' );
+
+		$this->start_controls_tab(
+			'description_colors_normal',
+			[
+				'label' => __( 'Normal', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_description_color',
+			[
+				'label'     => __( 'Description Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__description' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_description!' => '',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'event_description_hover_color',
+			[
+				'label' => __( 'Hover', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'event_description_color_hover',
+			[
+				'label'     => __( 'Description Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__description:hover' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'event_description!' => '',
+				],
+			]
+		);
+
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->add_control(
+			'button-text_style',
+			[
+				'type'      => Controls_Manager::HEADING,
+				'label'     => __( 'Button Text', 'hrithik-features' ),
+				'condition' => [
+					'button!' => '',
+				],
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'      => 'button-text_typography',
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'selector'  => '{{WRAPPER}} .elementor-cta__button_text',
+				'condition' => [
+					'button!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_text_spacing',
+			[
+				'label'     => __( 'Spacing', 'hrithik-features' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__button_text:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'button!' => '',
+				],
+				'default'   => [
+					'unit' => 'px',
+					'size' => '20',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'button_text_color_tabs' );
+
+		$this->start_controls_tab(
+			'button_colors_normal',
+			[
+				'label' => __( 'Normal', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'button_text_color',
+			[
+				'label'     => __( 'Text Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__button_text' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'button!' => '',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'button_text_hover_color',
+			[
+				'label' => __( 'Hover', 'hrithik-features' ),
+			]
+		);
+
+		$this->add_control(
+			'button_text_color_hover',
+			[
+				'label'     => __( 'Text Color', 'hrithik-features' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__button_text:hover' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'button!' => '',
+				],
+			]
+		);
+
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -194,6 +785,7 @@ class Upcoming_Events extends Base {
 		$this->add_inline_editing_attributes( 'event_name' );
 		$this->add_inline_editing_attributes( 'event_date' );
 		$this->add_inline_editing_attributes( 'event_location' );
+		$this->add_inline_editing_attributes( 'event_description' );
 		$this->add_inline_editing_attributes( 'button' );
 
 		$this->add_render_attribute(
@@ -201,6 +793,7 @@ class Upcoming_Events extends Base {
 			'class',
 			[
 				'upcoming-event__type',
+				'elementor-cta__type',
 			]
 		);
 
@@ -209,6 +802,7 @@ class Upcoming_Events extends Base {
 			'class',
 			[
 				'upcoming-event__name',
+				'elementor-cta__name',
 			]
 		);
 
@@ -217,6 +811,7 @@ class Upcoming_Events extends Base {
 			'class',
 			[
 				'upcoming-event__date',
+				'elementor-cta__date',
 			]
 		);
 
@@ -225,6 +820,7 @@ class Upcoming_Events extends Base {
 			'class',
 			[
 				'upcoming-event__location',
+				'elementor-cta__location',
 			]
 		);
 
@@ -233,6 +829,7 @@ class Upcoming_Events extends Base {
 			'class',
 			[
 				'upcoming-event__description',
+				'elementor-cta__description',
 			]
 		);
 
@@ -241,6 +838,7 @@ class Upcoming_Events extends Base {
 			'class',
 			[
 				'button__text',
+				'elementor-cta__button_text',
 			]
 		);
 
