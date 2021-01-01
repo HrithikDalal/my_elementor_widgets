@@ -190,6 +190,60 @@ class Upcoming_Events extends Base {
 			$this->add_link_attributes( 'link', $settings['link'], true );
 		}
 
+		$this->add_inline_editing_attributes( 'event_type' );
+		$this->add_inline_editing_attributes( 'event_name' );
+		$this->add_inline_editing_attributes( 'event_date' );
+		$this->add_inline_editing_attributes( 'event_location' );
+		$this->add_inline_editing_attributes( 'button' );
+
+		$this->add_render_attribute(
+			'event_type',
+			'class',
+			[
+				'upcoming-event__type',
+			]
+		);
+
+		$this->add_render_attribute(
+			'event_name',
+			'class',
+			[
+				'upcoming-event__name',
+			]
+		);
+
+		$this->add_render_attribute(
+			'event_date',
+			'class',
+			[
+				'upcoming-event__date',
+			]
+		);
+
+		$this->add_render_attribute(
+			'event_location',
+			'class',
+			[
+				'upcoming-event__location',
+			]
+		);
+
+		$this->add_render_attribute(
+			'event_description',
+			'class',
+			[
+				'upcoming-event__description',
+			]
+		);
+
+		$this->add_render_attribute(
+			'button',
+			'class',
+			[
+				'button__text',
+			]
+		);
+
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- Code from elementor.
 		?>
 		<div class="upcoming-event">
@@ -199,47 +253,40 @@ class Upcoming_Events extends Base {
 			<?php endif; ?>
 
 			<div class="upcoming-event__content">
-				<?php
-				if ( ! empty( $settings['event_type'] ) ) :
-					printf(
-						'<div class="upcoming-event__type">%s</div>',
-						esc_html( $settings['event_type'] )
-					);
-				endif;
+				<?php if ( ! empty( $settings['event_type'] ) ) : ?>
+					<div <?php echo $this->get_render_attribute_string( 'event_type' ); ?>>
+					<?php echo $settings['event_type']; ?>
+					</div>
+				<?php endif; ?>
 
-				if ( ! empty( $settings['event_name'] ) ) :
-					printf(
-						'<div class="upcoming-event__name">%s</div>',
-						esc_html( $settings['event_name'] )
-					);
-				endif;
+				<?php if ( ! empty( $settings['event_name'] ) ) : ?>
+					<div <?php echo $this->get_render_attribute_string( 'event_name' ); ?>>
+					<?php echo $settings['event_name']; ?>
+					</div>
+				<?php endif; ?>
 
-				if ( ! empty( $settings['event_date'] ) ) :
-					printf(
-						'<div class="upcoming-event__date">%s</div>',
-						esc_html( $settings['event_date'] )
-					);
-				endif;
+				<?php if ( ! empty( $settings['event_date'] ) ) : ?>
+					<div <?php echo $this->get_render_attribute_string( 'event_date' ); ?>>
+					<?php echo $settings['event_date']; ?>
+					</div>
+				<?php endif; ?>
 
-				if ( ! empty( $settings['event_location'] ) ) :
-					printf(
-						'<div class="upcoming-event__location">%s</div>',
-						esc_html( $settings['event_location'] )
-					);
-				endif;
+				<?php if ( ! empty( $settings['event_location'] ) ) : ?>
+					<div <?php echo $this->get_render_attribute_string( 'event_location' ); ?>>
+					<?php echo $settings['event_location']; ?>
+					</div>
+				<?php endif; ?>
 
-				if ( ! empty( $settings['event_description'] ) ) :
-					printf(
-						'<div class="upcoming-event__description">%s</div>',
-						wp_kses_post( $settings['event_description'] )
-					);
-				endif;
-				?>
+				<?php if ( ! empty( $settings['event_description'] ) ) : ?>
+					<div <?php echo $this->get_render_attribute_string( 'event_description' ); ?>>
+					<?php echo $settings['event_description']; ?>
+					</div>
+				<?php endif; ?>
 
 				<?php if ( ! empty( $settings['button'] ) ) : ?>
 				<div class="upcoming-events__button">
 					<a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
-						<span class="button__register-now"><?php echo $settings['button']; ?> <i class="fa fa-arrow-right"></i></span>
+						<span <?php echo $this->get_render_attribute_string( 'button' ); ?>><?php echo $settings['button']; ?> <i class="fa fa-arrow-right"></i></span>
 					</a>
 				</div>
 				<?php endif; ?>
