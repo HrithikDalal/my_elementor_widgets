@@ -1,5 +1,18 @@
 {
-  "blocks.js": "js/blocks.d9bd42f0afef9cffc68d.js",
-  "main.css": "css/main.61f7bb89c2982bcec030.css",
-  "main.js": "js/main.17681594f80ea657dc48.js"
+  "blocks.js": "js/blocks.js",
+  "blocks.js.map": "js/blocks.js.map",
+  "elementor-widgets-common.css": "css/elementor-widgets-common.css",
+  "elementor-widgets-common.css.map": "css/elementor-widgets-common.css.map",
+  "elementor-widgets-common.js": "js/elementor-widgets-common.js",
+  "elementor-widgets-common.js.map": "js/elementor-widgets-common.js.map",
+  "elementor-widgets/upcoming-events.css": "css/elementor-widgets/upcoming-events.css",
+  "elementor-widgets/upcoming-events.css.map": "css/elementor-widgets/upcoming-events.css.map",
+  "elementor-widgets/upcoming-events.js": "js/elementor-widgets/upcoming-events.js",
+  "elementor-widgets/upcoming-events.js.map": "js/elementor-widgets/upcoming-events.js.map",
+  "main.css": "css/main.css",
+  "main.css.map": "css/main.css.map",
+  "main.js": "js/main.js",
+  "main.js.map": "js/main.js.map",
+  "vs-elementor-editor.js": "js/vs-elementor-editor.js",
+  "vs-elementor-editor.js.map": "js/vs-elementor-editor.js.map"
 }

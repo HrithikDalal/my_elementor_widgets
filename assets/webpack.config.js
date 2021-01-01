@@ -16,18 +16,46 @@ const WebpackAssetsManifest = require( 'webpack-assets-manifest' );
 
 // JS Directory path.
 const JSDir = path.resolve( __dirname, 'src/js' );
+const SASS_DIR  = path.resolve( __dirname, 'src/scss' );
 const IMG_DIR = path.resolve( __dirname, 'src/images' );
 const FONTS_DIR = path.resolve( __dirname, 'src/fonts' );
 const BUILD_DIR = path.resolve( __dirname, 'build' );
 
-const entry = {
+const glob = require( 'glob' );
+
+const elementorWidgets = {};
+
+// Get all the widget files.
+const files = glob.sync( 'src/js/elementor-widgets/*.js' );
+
+// If we have files set them in a object to use with the entry.
+if ( files.length ) {
+
+	files.forEach( ( file ) => {
+
+		let fileName = file.split( '/' );
+
+		fileName = fileName.slice( ( fileName.length - 1) )[0].split( '.' )[0];
+
+		elementorWidgets[`elementor-widgets/${fileName}`] = path.resolve( __dirname, file );
+
+	} );
+}
+
+// Default Entry point.
+const defaultEntry = {
 	main: JSDir + '/main.js',
-	blocks: JSDir + '/blocks.js'
+	blocks: JSDir + '/blocks.js',
+	'elementor-widgets-common': JSDir + '/elementor-widgets.js',
+	'vs-elementor-editor': JSDir + '/elementor-editor.js'
 };
+
+// Update widget entries with the default object.
+const entry = Object.assign( {}, defaultEntry, elementorWidgets );
 
 const output = {
 	path: BUILD_DIR,
-	filename: DEV ? 'js/[name].js' : 'js/[name].[contenthash].js'
+	filename: 'js/[name].js'
 };
 
 /**
@@ -85,8 +113,8 @@ const rules = [
 		use: {
 			loader: 'file-loader',
 			options: {
-				name: '[path][name].[ext]',
-				publicPath: '../'
+				name: 'img/[name].[ext]',
+				publicPath: 'production' === process.env.NODE_ENV ? '../../' : '../../../src/'
 			}
 		}
 	},
@@ -96,8 +124,8 @@ const rules = [
 		use: {
 			loader: 'file-loader',
 			options: {
-				name: '[path][name].[ext]',
-				publicPath: '../'
+				name: 'fonts/[name].[ext]',
+				publicPath: 'production' === process.env.NODE_ENV ? '../' : '../../../src/'
 			}
 		}
 	}
