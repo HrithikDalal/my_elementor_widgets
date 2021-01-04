@@ -985,4 +985,74 @@ class Upcoming_Events extends Base {
 		</div>
 		<?php
 	}
+
+	/**
+	 * Render Upcoming Event widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since  2.9.0
+	 * @access protected
+	 */
+	protected function content_template() {
+		//phpcs:disable WordPressVIPMinimum.Security.Mustache.OutputNotation
+		?>
+		<#
+		view.addInlineEditingAttributes( 'event_type' );
+		view.addInlineEditingAttributes( 'event_name' );
+		view.addInlineEditingAttributes( 'event_date' );
+		view.addInlineEditingAttributes( 'event_location' );
+		view.addInlineEditingAttributes( 'event_description' );
+		view.addInlineEditingAttributes( 'button' );
+
+		view.addRenderAttribute( 'event_type', 'class', [ 'upcoming-event__type', 'elementor-cta__type' ] );
+		view.addRenderAttribute( 'event_name', 'class', [ 'upcoming-event__name', 'elementor-cta__name' ] );
+		view.addRenderAttribute( 'event_date', 'class', [ 'upcoming-event__date', 'elementor-cta__date' ] );
+		view.addRenderAttribute( 'event_location', 'class', [ 'upcoming-event__location', 'elementor-cta__location' ] );
+		view.addRenderAttribute( 'event_description', 'class', [ 'upcoming-event__description', 'elementor-cta__description' ] );
+		view.addRenderAttribute( 'button', 'class', [ 'button__text', 'elementor-cta__button_text' ] );
+
+
+
+		#>
+		<div class="upcoming-event">
+
+			<# if ( 'yes' === settings.show_gradient_bar ) { #>
+				<div class="theme-gradient"></div>
+			<# } #>
+		</div>
+		<div class="upcoming-event__content">
+
+			<# if ( settings.event_type ) { #>
+			<div {{{ view.getRenderAttributeString( 'event_type' ) }}}>{{{ settings.event_type }}}</div>
+			<# } #>
+
+			<# if ( settings.event_name ) { #>
+			<div {{{ view.getRenderAttributeString( 'event_name' ) }}}>{{{ settings.event_name }}}</div>
+			<# } #>
+
+			<# if ( settings.event_date ) { #>
+			<div {{{ view.getRenderAttributeString( 'event_date' ) }}}>{{{ settings.event_date }}}</div>
+			<# } #>
+
+			<# if ( settings.event_location ) { #>
+			<div {{{ view.getRenderAttributeString( 'event_location' ) }}}>{{{ settings.event_location }}}</div>
+			<# } #>
+
+			<# if ( settings.event_description ) { #>
+			<div {{{ view.getRenderAttributeString( 'event_description' ) }}}>{{{ settings.event_description }}}</div>
+			<# } #>
+
+			<# if ( settings.button ) { #>
+			<div class="upcoming-events__button">
+				<a href="#">
+					<span {{{ view.getRenderAttributeString( 'button' ) }}}>{{{ settings.button }}} <i class="fa fa-arrow-right"></i></span>
+				</a>
+			</div>
+			<# } #>
+
+		</div>
+		<?php
+		//phpcs:enable WordPressVIPMinimum.Security.Mustache.OutputNotation
+	}
 }
