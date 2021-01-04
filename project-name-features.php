@@ -13,8 +13,10 @@
  * @package hrithik-features
  */
 
+define( 'HRITHIK_FEATURES_VERSION', '1.0.0' );
 define( 'HRITHIK_FEATURES_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'HRITHIK_FEATURES_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
+define( 'HRITHIK_FEATURES_ASSETS_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/assets' );
 
 // phpcs:disable WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 require_once HRITHIK_FEATURES_PATH . '/inc/helpers/autoloader.php';

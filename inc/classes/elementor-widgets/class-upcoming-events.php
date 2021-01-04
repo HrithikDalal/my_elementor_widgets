@@ -224,17 +224,30 @@ class Upcoming_Events extends Base {
 		$this->add_responsive_control(
 			'event_type_spacing',
 			[
-				'label'     => __( 'Spacing', 'hrithik-features' ),
-				'type'      => Controls_Manager::SLIDER,
-				'selectors' => [
+				'label'           => __( 'Spacing', 'hrithik-features' ),
+				'type'            => Controls_Manager::SLIDER,
+				'selectors'       => [
 					'{{WRAPPER}} .elementor-cta__type:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition'       => [
 					'event_type!' => '',
 				],
-				'default'   => [
+				'devices'         => [
+					'desktop',
+					'tablet',
+					'mobile',
+				],
+				'desktop_default' => [
+					'size' => 20,
 					'unit' => 'px',
-					'size' => '20',
+				],
+				'tablet_default'  => [
+					'size' => 15,
+					'unit' => 'px',
+				],
+				'mobile_default'  => [
+					'size' => 10,
+					'unit' => 'px',
 				],
 			]
 		);
@@ -317,17 +330,33 @@ class Upcoming_Events extends Base {
 		$this->add_responsive_control(
 			'event_name_spacing',
 			[
-				'label'     => __( 'Spacing', 'hrithik-features' ),
-				'type'      => Controls_Manager::SLIDER,
-				'selectors' => [
+				'label'           => __( 'Spacing', 'hrithik-features' ),
+				'type'            => Controls_Manager::SLIDER,
+				'selectors'       => [
 					'{{WRAPPER}} .elementor-cta__name:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition'       => [
 					'event_name!' => '',
 				],
-				'default'   => [
+				'condition'       => [
+					'event_type!' => '',
+				],
+				'devices'         => [
+					'desktop',
+					'tablet',
+					'mobile',
+				],
+				'desktop_default' => [
+					'size' => 20,
 					'unit' => 'px',
-					'size' => '20',
+				],
+				'tablet_default'  => [
+					'size' => 15,
+					'unit' => 'px',
+				],
+				'mobile_default'  => [
+					'size' => 10,
+					'unit' => 'px',
 				],
 			]
 		);
@@ -399,7 +428,7 @@ class Upcoming_Events extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'event_date_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_2,
 				'selector'  => '{{WRAPPER}} .elementor-cta__date',
 				'condition' => [
 					'event_date!' => '',
@@ -410,17 +439,33 @@ class Upcoming_Events extends Base {
 		$this->add_responsive_control(
 			'event_date_spacing',
 			[
-				'label'     => __( 'Spacing', 'hrithik-features' ),
-				'type'      => Controls_Manager::SLIDER,
-				'selectors' => [
+				'label'           => __( 'Spacing', 'hrithik-features' ),
+				'type'            => Controls_Manager::SLIDER,
+				'selectors'       => [
 					'{{WRAPPER}} .elementor-cta__date:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition'       => [
 					'event_date!' => '',
 				],
-				'default'   => [
+				'condition'       => [
+					'event_type!' => '',
+				],
+				'devices'         => [
+					'desktop',
+					'tablet',
+					'mobile',
+				],
+				'desktop_default' => [
+					'size' => 20,
 					'unit' => 'px',
-					'size' => '20',
+				],
+				'tablet_default'  => [
+					'size' => 15,
+					'unit' => 'px',
+				],
+				'mobile_default'  => [
+					'size' => 10,
+					'unit' => 'px',
 				],
 			]
 		);
@@ -492,7 +537,7 @@ class Upcoming_Events extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'event_location_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_2,
 				'selector'  => '{{WRAPPER}} .elementor-cta__location',
 				'condition' => [
 					'event_location!' => '',
@@ -503,17 +548,33 @@ class Upcoming_Events extends Base {
 		$this->add_responsive_control(
 			'event_location_spacing',
 			[
-				'label'     => __( 'Spacing', 'hrithik-features' ),
-				'type'      => Controls_Manager::SLIDER,
-				'selectors' => [
+				'label'           => __( 'Spacing', 'hrithik-features' ),
+				'type'            => Controls_Manager::SLIDER,
+				'selectors'       => [
 					'{{WRAPPER}} .elementor-cta__location:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition'       => [
 					'event_location!' => '',
 				],
-				'default'   => [
+				'condition'       => [
+					'event_type!' => '',
+				],
+				'devices'         => [
+					'desktop',
+					'tablet',
+					'mobile',
+				],
+				'desktop_default' => [
+					'size' => 20,
 					'unit' => 'px',
-					'size' => '20',
+				],
+				'tablet_default'  => [
+					'size' => 15,
+					'unit' => 'px',
+				],
+				'mobile_default'  => [
+					'size' => 10,
+					'unit' => 'px',
 				],
 			]
 		);
@@ -585,7 +646,7 @@ class Upcoming_Events extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'event_description_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_3,
 				'selector'  => '{{WRAPPER}} .elementor-cta__description',
 				'condition' => [
 					'event_description!' => '',
@@ -596,17 +657,33 @@ class Upcoming_Events extends Base {
 		$this->add_responsive_control(
 			'event_description_spacing',
 			[
-				'label'     => __( 'Spacing', 'hrithik-features' ),
-				'type'      => Controls_Manager::SLIDER,
-				'selectors' => [
+				'label'           => __( 'Spacing', 'hrithik-features' ),
+				'type'            => Controls_Manager::SLIDER,
+				'selectors'       => [
 					'{{WRAPPER}} .elementor-cta__description:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition'       => [
 					'event_description!' => '',
 				],
-				'default'   => [
+				'condition'       => [
+					'event_type!' => '',
+				],
+				'devices'         => [
+					'desktop',
+					'tablet',
+					'mobile',
+				],
+				'desktop_default' => [
+					'size' => 20,
 					'unit' => 'px',
-					'size' => '20',
+				],
+				'tablet_default'  => [
+					'size' => 15,
+					'unit' => 'px',
+				],
+				'mobile_default'  => [
+					'size' => 10,
+					'unit' => 'px',
 				],
 			]
 		);
@@ -678,7 +755,7 @@ class Upcoming_Events extends Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'button-text_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				'scheme'    => Schemes\Typography::TYPOGRAPHY_3,
 				'selector'  => '{{WRAPPER}} .elementor-cta__button_text',
 				'condition' => [
 					'button!' => '',
@@ -689,17 +766,33 @@ class Upcoming_Events extends Base {
 		$this->add_responsive_control(
 			'button_text_spacing',
 			[
-				'label'     => __( 'Spacing', 'hrithik-features' ),
-				'type'      => Controls_Manager::SLIDER,
-				'selectors' => [
+				'label'           => __( 'Spacing', 'hrithik-features' ),
+				'type'            => Controls_Manager::SLIDER,
+				'selectors'       => [
 					'{{WRAPPER}} .elementor-cta__button_text:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition'       => [
 					'button!' => '',
 				],
-				'default'   => [
+				'condition'       => [
+					'event_type!' => '',
+				],
+				'devices'         => [
+					'desktop',
+					'tablet',
+					'mobile',
+				],
+				'desktop_default' => [
+					'size' => 20,
 					'unit' => 'px',
-					'size' => '20',
+				],
+				'tablet_default'  => [
+					'size' => 15,
+					'unit' => 'px',
+				],
+				'mobile_default'  => [
+					'size' => 10,
+					'unit' => 'px',
 				],
 			]
 		);
