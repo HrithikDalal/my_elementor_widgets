@@ -29,5 +29,9 @@
     .upcoming-event .button__text:hover {
       cursor: pointer; }
 
+.js-test {
+  background-color: teal;
+  color: yellow; }
+
 
 /*# sourceMappingURL=upcoming-events.css.map*/

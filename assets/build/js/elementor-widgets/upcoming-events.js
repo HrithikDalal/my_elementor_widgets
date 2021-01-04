@@ -97,12 +97,114 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_elementor_widgets_upcoming_events_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scss/elementor-widgets/_upcoming-events.scss */ "./src/scss/elementor-widgets/_upcoming-events.scss");
 /* harmony import */ var _scss_elementor_widgets_upcoming_events_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_elementor_widgets_upcoming_events_scss__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 /**
  * Upcoming Events Card Scripts.
  *
  * @package hrithik-features
  */
 
+
+var UpcomingEvents =
+/*#__PURE__*/
+function (_elementorModules$fro) {
+  _inherits(UpcomingEvents, _elementorModules$fro);
+
+  function UpcomingEvents() {
+    _classCallCheck(this, UpcomingEvents);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(UpcomingEvents).apply(this, arguments));
+  }
+
+  _createClass(UpcomingEvents, [{
+    key: "getDefaultSettings",
+
+    /**
+     * This method is used to add any custom settings to be used in the widget’s JS handler.
+     *
+     * @return {{selectors: {testButton: string, container: string}}}
+     */
+    value: function getDefaultSettings() {
+      return {
+        selectors: {
+          testButton: '.upcoming-events__button',
+          container: '.upcoming-event'
+        }
+      };
+    }
+    /**
+     * This method is used to create jQuery objects of the HTML elements targeted by the JS handler.
+     *
+     * @return {{$testButton: *, $container: *}}
+     */
+
+  }, {
+    key: "getDefaultElements",
+    value: function getDefaultElements() {
+      var selectors = this.getSettings('selectors');
+      return {
+        $testButton: this.$element.find(selectors.testButton),
+        $container: this.$element.find(selectors.container)
+      };
+    }
+    /**
+     * This method is used to add event listeners for widget-related events.
+     *
+     * @return {void}
+     */
+
+  }, {
+    key: "bindEvents",
+    value: function bindEvents() {
+      this.elements.$testButton.on('click', this.handleClicks.bind(this));
+    }
+    /**
+     * Handle Click.
+     *
+     * @param {Object} event Event Object.
+     */
+
+  }, {
+    key: "handleClicks",
+    value: function handleClicks(event) {
+      event.preventDefault();
+      this.elements.$container.toggleClass('js-test');
+    }
+  }]);
+
+  return UpcomingEvents;
+}(elementorModules.frontend.handlers.Base);
+/**
+ * Registering the Widget Handler with Elementor
+ */
+
+
+jQuery(window).on('elementor/frontend/init', function () {
+  var UpcomingEventsHandler = function UpcomingEventsHandler($element) {
+    elementorFrontend.elementsHandler.addHandler(UpcomingEvents, {
+      $element: $element
+    });
+  };
+
+  elementorFrontend.hooks.addAction('frontend/element_ready/upcoming-events.default', UpcomingEventsHandler);
+});
 
 /***/ }),
 

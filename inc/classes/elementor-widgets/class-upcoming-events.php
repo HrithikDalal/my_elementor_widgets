@@ -29,6 +29,7 @@ class Upcoming_Events extends Base {
 		parent::__construct( $data, $args );
 
 		wp_register_style( 'upcoming-events-css', sprintf( '%s/assets/build/css/elementor-widgets/upcoming-events.css', untrailingslashit( HRITHIK_FEATURES_URL ) ), [], HRITHIK_FEATURES_VERSION );
+		wp_register_script( 'upcoming-events-js', sprintf( '%s/assets/build/js/elementor-widgets/upcoming-events.js', untrailingslashit( HRITHIK_FEATURES_URL ) ), [ 'elementor-frontend' ], HRITHIK_FEATURES_VERSION, true );
 
 	}
 
@@ -44,6 +45,7 @@ class Upcoming_Events extends Base {
 			'icon'            => 'eicon-info-box',
 			'categories'      => [ 'hrithik' ],
 			'keywords'        => [ 'event', 'webinar', 'workshop', 'upcoming' ],
+			'depended_script' => [ 'upcoming-events-js' ],
 			'depended_styles' => [ 'upcoming-events-css' ],
 		];
 	}

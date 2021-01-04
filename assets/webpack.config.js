@@ -47,7 +47,7 @@ const defaultEntry = {
 	main: JSDir + '/main.js',
 	blocks: JSDir + '/blocks.js',
 	'elementor-widgets-common': JSDir + '/elementor-widgets.js',
-	'vs-elementor-editor': JSDir + '/elementor-editor.js'
+	'hrithik-elementor-editor': JSDir + '/elementor-editor.js'
 };
 
 // Update widget entries with the default object.

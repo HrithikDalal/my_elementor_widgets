@@ -9,10 +9,10 @@
   "elementor-widgets/upcoming-events.css.map": "css/elementor-widgets/upcoming-events.css.map",
   "elementor-widgets/upcoming-events.js": "js/elementor-widgets/upcoming-events.js",
   "elementor-widgets/upcoming-events.js.map": "js/elementor-widgets/upcoming-events.js.map",
+  "hrithik-elementor-editor.js": "js/hrithik-elementor-editor.js",
+  "hrithik-elementor-editor.js.map": "js/hrithik-elementor-editor.js.map",
   "main.css": "css/main.css",
   "main.css.map": "css/main.css.map",
   "main.js": "js/main.js",
-  "main.js.map": "js/main.js.map",
-  "vs-elementor-editor.js": "js/vs-elementor-editor.js",
-  "vs-elementor-editor.js.map": "js/vs-elementor-editor.js.map"
+  "main.js.map": "js/main.js.map"
 }
